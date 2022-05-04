@@ -7,7 +7,7 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     student_id = db.Column(db.String(9), unique=True, nullable=False)
     username = db.Column(db.String(80), unique=True,nullable=False)
-    pwd = db.Column(db.String(300), nulable=False, unique=True)
+    pwd = db.Column(db.String(300), nullable=False, unique=True)
 
     def __repr__(self):
         return '<User %r>' % self.username
