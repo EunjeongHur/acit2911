@@ -44,3 +44,43 @@ Before running the app, make sure your virtual environment is on!!
 ```
 python routes.py
 ```
+
+## Git commands
+
+Don't forget **git pull** in the main branch before make changes
+
+To create branch,
+``` git branch [branch_name] ```
+
+To change branch,
+``` git checkout [branch_name] ```
+
+
+To check status,
+``` git status ```
+
+To add change,
+``` git add [filename]```
+
+To commit change,
+``` git commit -m '[commit_msg]'```
+
+To push changes to repository,
+``` git push origin [branch_name]```
+
+To delete branch,
+```git branch -d [branch_name]```
+
+```
+ex)
+git pull (in the main)
+git branch example
+git checkout example
+**Make changes, Edit file**
+git commit -m 'Edited ReadMe'
+git push origin example
+**In github repository page, click 'pull request'**
+git checkout main
+git pull
+git branch -d example
+```
