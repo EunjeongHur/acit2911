@@ -3,7 +3,60 @@
 
 <div class="container">
 
-    <a href="{{url_for('login')}}">Sign in/Sign up</a>
+    {% if current_user.is_authenticated %}
+    <p>Welcome {{ current_user.username }}</p>
+    <form action="/gpa/{{ current_user.student_id }}" method="POST" onclick="showForm()">
     
+        <p>Select your term</p>
+        <select id="term" name="term">
+            <option value="term1">Term 1</option>
+            <option value="term2">Term 2</option>
+            <option value="term3">Term 3</option>
+            <option value="term4">Term 4</option>
+        </select>
+        <p>Select your courses</p>
+        <select id="course" name="course">
+            <option value="acit1420" class="t1c" style="display:none">ACIT 1420</option>
+            <option value="acit1620" class="t1c" style="display:none">ACIT 1620</option>
+            <option value="acit1515" class="t1c" style="display:none">ACIT 1515</option>
+            <option value="acit1630" class="t1c" style="display:none">ACIT 1630</option>
+            <option value="comm1116" class="t1c" style="display:none">COMM 1116</option>
+            <option value="math1310" class="t1c" style="display:none">MATH 1310</option>
+            <option value="orgb1100" class="t1c" style="display:none">ORGB 1100</option>
+            <option value="acit2420" class="t2c" style="display:none">ACIT 2420</option>
+            <option value="acit2515" class="t2c" style="display:none">ACIT 2515</option>
+            <option value="acit2520" class="t2c" style="display:none">ACIT 2520</option>
+            <option value="acit2620" class="t2c" style="display:none">ACIT 2620</option>
+            <option value="acit2811" class="t2c" style="display:none">ACIT 2811</option>
+            <option value="acit2831" class="t2c" style="display:none">ACIT 2831</option>
+            <option value="acit2911" class="t2c" style="display:none">ACIT 2911</option>
+            <option value="acit4770" class="t2c" style="display:none">ACIT 4770</option>
+            <option value="comm2216" class="t2c" style="display:none">COMM 2216</option>
+            <option value="math1350" class="t2c" style="display:none">MATH 1350</option>
+            <option value="acit3420" class="t3c" style="display:none">ACIT 3420</option>
+            <option value="acit3475" class="t3c" style="display:none">ACIT 3475</option>
+            <option value="acit3640" class="t3c" style="display:none">ACIT 3640</option>
+            <option value="acit3771" class="t3c" style="display:none">ACIT 3771</option>
+            <option value="acit3896" class="t3c" style="display:none">ACIT 3896</option>
+            <option value="acit3900" class="t3c" style="display:none">ACIT 3900</option>
+            <option value="acit3910" class="t3c" style="display:none">ACIT 3910</option>
+            <option value="acit3495" class="t4c" style="display:none">ACIT 3495</option>
+            <option value="acit3855" class="t4c" style="display:none">ACIT 3855</option>
+            <option value="acit4630" class="t4c" style="display:none">ACIT 4630</option>
+            <option value="acit4640" class="t4c" style="display:none">ACIT 4640</option>
+            <option value="acit4850" class="t4c" style="display:none">ACIT 4850</option>
+            <option value="acit4880" class="t4c" style="display:none">ACIT 4880</option>
+            <option value="acit4990" class="t4c" style="display:none">ACIT 4990</option>
+            <option value="acit4980" class="t4c" style="display:none">ACIT 4980</option>
+        </select>
+        <div>
+            <input type="number" name="grade" placeholder="Enter grade (%)" autocomplete="off">
+        </div>
+        <p><input type="submit" value="Save"></p>
+    </form>
+    <a href="{{url_for('logout')}}">Logout</a>
+    {% else %}
+    <a href="{{url_for('login')}}">Sign in/Sign up</a>
+    {% endif %}
 </div>
 {% endblock %}

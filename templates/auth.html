@@ -54,6 +54,9 @@
     </div> {% endfor %}
     {% if request.path == '/register/' %}
     <div>
+      {{ form.cpwd(class_="form-control", placeholder="Confirm Password")}}
+    </div>
+    <div>
     {% for error in form.cpwd.errors %} 
     <div role="alert">
       {{ error }}
@@ -61,7 +64,7 @@
     </div> {% endfor %}
     {% endif %} 
       <div>
-        <button type="submit">Login</button>
+        <button type="submit">{{ btn_action }}</button>
         <label>
           <input type="checkbox" checked="checked" name="remember"> Remember me
         </label>
