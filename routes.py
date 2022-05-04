@@ -50,3 +50,12 @@ def session_handler():
 @app.route("/", methods=("GET", "POST"), strict_slashes=False)
 def index():
     return render_template("index.html")
+
+@app.route("/login/", methods=("GET", "POST"), strict_slashes=False)
+def login():
+    return render_template_string(f'hello world')
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
