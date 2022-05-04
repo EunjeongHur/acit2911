@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style/style.css')}}">
+    <title>CIT GPA Calculator</title>
+</head>
+<body>
+    <div class="container-fluid">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <script>function showForm() {
+        var selopt = document.getElementById('term').value;
+        var t1c = document.getElementsByClassName("t1c")
+        var t2c = document.getElementsByClassName("t2c")
+        var t3c = document.getElementsByClassName("t3c")
+        var t4c = document.getElementsByClassName("t4c")
+        if (selopt=="term1") {
+            for (let x of t1c) {
+                x.style.display='block'
+            }
+
+            for (let x of t2c) {
+                x.style.display='none'
+            }
+
+            for (let x of t3c) {
+                x.style.display='none'
+            }
+
+            for (let x of t4c) {
+                x.style.display='none'
+            }
+
+        }
+        if (selopt=="term2") {
+            for (let x of t2c) {
+                x.style.display='block'
+            }
+            for (let x of t1c) {
+                x.style.display='none'
+            }
+              
+            for (let x of t3c) {
+                x.style.display='none'
+            }
+            for (let x of t4c) {
+                x.style.display='none'
+            }
+        }
+        if (selopt=="term3") {
+            for (let x of t3c) {
+                x.style.display='block'
+            }
+            for (let x of t1c) {
+                x.style.display='none'
+            }
+            for (let x of t2c) {
+                x.style.diplsay='none'
+            }
+            
+            for (let x of t4c) {
+                x.style.display='none'
+            }
+        }
+        if (selopt=="term4") {
+            for (let x of t4c) {
+                x.style.display='block'
+            }
+            for (let x of t1c) {
+                x.style.display='none'
+            }
+            for (let x of t2c) {
+                x.style.diplsay='none'
+            }
+            for (let x of t3c) {
+                x.style.display='none'
+            }
+           
+        }
+    }</script>
+</body>
+</html>
