@@ -53,8 +53,54 @@ def index():
 
 @app.route("/login/", methods=("GET", "POST"), strict_slashes=False)
 def login():
-    return render_template_string(f'hello world')
+    form = login_form()
 
+    if form.validate_on_submit():
+        try:
+            user = User.query.filter_by(student_id=form.student_id.data).first()
+            if check_password_hash(user.pwd, form.pwd.data):
+                return redirect(url_for('index'))
+        except Exception as e:
+            flash(e, "danger")
+    return render_template("auth.html",
+    form=form, text="Login")
+
+@app.route("/register/", methods=("GET", "POST"), strict_slashes=False)
+def register():
+    form = register_form()
+    if form.validate_on_submit():
+        try:
+            student_id = form.student_id.data
+            pwd = form.pwd.data
+            username = form.username.data
+
+            newuser = User(
+                student_id = student_id,
+                username = username,
+                pwd=bcrypt.generate_password_hash(pwd),
+            )
+
+            db.session.add(newuser)
+            db.session.commit()
+            flash(f"Account Succesfully created", "success")
+            return redirect(url_for("login"))
+
+        except InvalidRequestError:
+            db.session.rollback()
+            flash(f"Something went wrong", "danger")
+        except IntegrityError:
+            db.session.rollback()
+            flash(f"User already exists", "warning")
+        except DataError:
+            db.session.rollback()
+            flash(f"Invalid Entry", "warning")
+        except InterfaceError:
+            db.session.rollback()
+            flash(f"Error connecting to the database", "danger")
+        except BuildError:
+            db.session.rollback()
+            flash(f"An error occured!", "danger")
+    return render_template("auth.html", form=form, text="Create account")
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -3,7 +3,6 @@
 
 <div class="container">
 
-  {% if current_user.is_authenticated %}
   <form action="{{ request.path }}" method="POST">
     <div class="imgcontainer">
       <img src="{{url_for('static', filename='Images/logo.png') }}" alt="logo_CIT_GPA_Calculator" class="logo_CIT_GPA_Calculator">
