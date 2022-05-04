@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block content%}
+
+<div class="container">
+
+  <form action="{{ request.path }}" method="POST">
+    <div class="imgcontainer">
+      <img src="{{url_for('static', filename='Images/logo.png') }}" alt="logo_CIT_GPA_Calculator" class="logo_CIT_GPA_Calculator">
+    </div>
+    {{ form.csrf_token }}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+
+    {% if messages %}
+    {% for category, message in messages %}
+    <div role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <div>
+      <h5>{{ text }}</h5>
+    </div>
+
+    {% if request.path == '/register/' %}
+    <div>
+      {{ form.username(class_="form-control", placeholder="Username")}}
+    </div>
+    {% for error in form.username.errors %}
+    <div role="alert">
+      {{ error }}
+      <button type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    <div class="userpswd">
+      {{ form.student_id(class_="form-control", placeholder="Student ID")}}
+    </div>
+    {% for error in form.student_id.errors %}
+    <div role="alert">
+      {{ error }}
+      <button type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    <div>
+      {{ form.pwd(class_="form-control", placeholder="Password")}}
+    </div>
+    {% for error in form.pwd.errors %}
+    <div role="alert">
+      {{ error }}
+      <button type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div> {% endfor %}
+    {% if request.path == '/register/' %}
+    <div>
+    {% for error in form.cpwd.errors %} 
+    <div role="alert">
+      {{ error }}
+      <button type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div> {% endfor %}
+    {% endif %} 
+      <div>
+        <button type="submit">Login</button>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+        <p>
+          {% if request.path != '/register/' %}
+          New here?
+          <a href="{{url_for('register')}}">Create account</a>
+          {% else %}
+          Already have an account?
+          <a href="{{url_for('login')}}">Login</a>
+          {% endif %}
+        </p>
+      </div>
+    </div>
+  
+    <!-- <div class="container">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <span class="password">Forgot <a href="#">password?</a></span>
+    </div> -->
+  </form>
+</div>
+
+{% endblock %}
