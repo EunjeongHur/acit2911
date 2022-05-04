@@ -59,11 +59,14 @@ def login():
         try:
             user = User.query.filter_by(student_id=form.student_id.data).first()
             if check_password_hash(user.pwd, form.pwd.data):
+                login_user(user)
                 return redirect(url_for('index'))
+            else:
+                flash("Invalid Student ID or password!", "danger")
         except Exception as e:
             flash(e, "danger")
     return render_template("auth.html",
-    form=form, text="Login")
+    form=form, text="Login", btn_action="Login")
 
 @app.route("/register/", methods=("GET", "POST"), strict_slashes=False)
 def register():
@@ -100,7 +103,13 @@ def register():
         except BuildError:
             db.session.rollback()
             flash(f"An error occured!", "danger")
-    return render_template("auth.html", form=form, text="Create account")
+    return render_template("auth.html", form=form, text="Create account", btn_action="Register Account")
+
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('login'))
 
 if __name__ == "__main__":
     app.run(debug=True)
