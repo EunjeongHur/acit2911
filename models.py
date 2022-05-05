@@ -10,7 +10,7 @@ class User(UserMixin, db.Model):
     pwd = db.Column(db.String(300), nullable=False, unique=True)
 
     def __repr__(self):
-        return '<User %r>' % self.username
+        return f'<User: {self.username}>'
 
 class Course(db.Model):
     __tablename__ = "course"
@@ -21,4 +21,4 @@ class Course(db.Model):
     grade = db.Column(db.Integer, unique=False, nullable=False)
 
     def __repr__(self):
-        return f'<Grade: {self.grade}'
+        return f'<Grade: {self.grade}>'
