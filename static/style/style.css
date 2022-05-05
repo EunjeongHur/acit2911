@@ -6,6 +6,11 @@ body {
 form {
     border: 3px solid rgb(68, 126, 252);
 }
+
+h1 {
+  padding: 30px;
+  font-size: medium;
+}
   
 input[type=text], input[type=password] {
     width: 100%;
@@ -45,10 +50,6 @@ button:hover {
 img.logo_CIT_GPA_Calculator {
     width: 30%;
   }
-
-.userpswd {
-    padding: 30px;
-}
 
 .container {
     padding: 30px;

@@ -14,76 +14,65 @@
         {% endblock %}
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script>function showForm() {
-        var selopt = document.getElementById('term').value;
-        var t1c = document.getElementsByClassName("t1c")
-        var t2c = document.getElementsByClassName("t2c")
-        var t3c = document.getElementsByClassName("t3c")
-        var t4c = document.getElementsByClassName("t4c")
-        if (selopt=="term1") {
-            for (let x of t1c) {
-                x.style.display='block'
-            }
-
-            for (let x of t2c) {
-                x.style.display='none'
-            }
-
-            for (let x of t3c) {
-                x.style.display='none'
-            }
-
-            for (let x of t4c) {
-                x.style.display='none'
-            }
-
+    <script>let termCourse = {
+        "Term 1": [
+          "ACIT 1420 - Introduction to Systems Administration",
+          "ACIT 1515 - Scripting for IT",
+          "ACIT 1620 - Fundamental Web Technologies",
+          "ACIT 1630 - Database Systems",
+          "COMM 1116 - Business Communications 1",
+          "MATH 1310 - Technical Math for IT",
+          "ORGB 1100 - Organizational Behaviour",
+        ],
+        "Term 2": [
+          "ACIT 2420 - Linux System Administration",
+          "ACIT 2515 - Object Oriented Programming",
+          "ACIT 2520 - Developing Web Applications",
+          "ACIT 2620 - Principles of Enterprise Networking",
+          "ACIT 2811 - UX/UI Development",
+          "ACIT 2831 - Business Systems Analysis",
+          "ACIT 2911 - Agile Development Project",
+          "ACIT 4770 - Legal and Ethical Issues in IT",
+          "COMM 2216 - Business Communications 2",
+          "MATH 1350 - Statistics for Information Technology"
+        ],
+        "Term 3": [
+          "ACIT 3420 - Windows Server Administration",
+          "ACIT 3475 - Web Server Administration",
+          "ACIT 3640 - Cloud Computing",
+          "ACIT 3771 - IT Service and Project Management",
+          "ACIT 3896 - Applied Algorithms",
+          "ACIT 3900 - IT Projects Practicum 1",
+          "ACIT 3910 - Database Administration and Management"
+        ],
+        "Term 4": [
+          "ACIT 3495 - Advanced Topics in IT Infrastructure",
+          "ACIT 3855 - Service Based Architectures",
+          "ACIT 4630 - Information Assurance and Security",
+          "ACIT 4640 - IT System and Network Provisioning",
+          "ACIT 4850 - Enterprise System Integration",
+          "ACIT 4880 - Introduction to Data Analytics",
+          "ACIT 4900 - IT Project Practicum 2",
+          "ACIT 4980 - Information Technology Industry Practicum"
+        ]
+      }
+      
+      window.onload = function() {
+        const termSel = document.getElementById("term");
+        const courseSel = document.getElementById("course");
+        termSel.length = 1;
+        for (let x in termCourse) {
+          termSel.options[termSel.options.length] = new Option(x, x);
         }
-        if (selopt=="term2") {
-            for (let x of t2c) {
-                x.style.display='block'
-            }
-            for (let x of t1c) {
-                x.style.display='none'
-            }
-              
-            for (let x of t3c) {
-                x.style.display='none'
-            }
-            for (let x of t4c) {
-                x.style.display='none'
-            }
+        termSel.onchange = function() {
+          courseSel.length = 1;
+          var y = termCourse[this.value];
+          for (var i = 0; i < y.length; i++) {
+            courseSel.options[courseSel.options.length] = new Option(y[i], y[i]);
+      
+          }
         }
-        if (selopt=="term3") {
-            for (let x of t3c) {
-                x.style.display='block'
-            }
-            for (let x of t1c) {
-                x.style.display='none'
-            }
-            for (let x of t2c) {
-                x.style.diplsay='none'
-            }
-            
-            for (let x of t4c) {
-                x.style.display='none'
-            }
-        }
-        if (selopt=="term4") {
-            for (let x of t4c) {
-                x.style.display='block'
-            }
-            for (let x of t1c) {
-                x.style.display='none'
-            }
-            for (let x of t2c) {
-                x.style.diplsay='none'
-            }
-            for (let x of t3c) {
-                x.style.display='none'
-            }
-           
-        }
-    }
+      }      
     </script>
 </body>
 </html>
