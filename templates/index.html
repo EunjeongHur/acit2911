@@ -1,26 +1,49 @@
 {% extends "base.html" %}
 {% block content%}
 
-<div class="container">
-
-    {% if current_user.is_authenticated %}
-    <p>Welcome {{ current_user.username }}</p>
-    <form action="/gpa/{{ current_user.student_id }}" method="POST" onclick="showForm()">
+<div id="mySidenav" class="sidenav">
+        {% if current_user.is_authenticated %}
+    <h1>{{ current_user.username }}</h1>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">Index</a>
+    <a href="{{url_for('gradeInput')}}">Grade Input</a>
+    <a href="#">Total Grade</a>
+    <a href="#">GPA</a>
+    <a href="{{url_for('logout')}}">Logout</a>
+    {% else %}
+    <a href="{{url_for('login')}}">Sign in/Sign up</a>
+    {% endif %}   
     
-        <p>Select your term</p>
-        <select id="term" name="term">
-        </select>
-        <p>Select your courses</p>
-        <select id="course" name="course">
-        </select>
-        <div>
-            <input type="number" name="grade" placeholder="Enter grade (%)" autocomplete="off">
-        </div>
-        <p><input type="submit" value="Save"></p>
-    </form>
+</div>
+
+<div id="main">
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776</span>
+        <div class="imgcontainer">
+        <img src="{{url_for('static', filename='Images/logo.png') }}" alt="logo_CIT_GPA_Calculator" class="logo_CIT_GPA_Calculator">
+      </div>
+        {% if current_user.is_authenticated %}
+    <h2>Welcome {{ current_user.username }}</h2>
     <a href="{{url_for('logout')}}">Logout</a>
     {% else %}
     <a href="{{url_for('login')}}">Sign in/Sign up</a>
     {% endif %}
-</div>
+  </div>
+  
+  <script>
+
+function show() {
+    mySidenav.show();
+}
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+  }
+
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+  </script>
+
 {% endblock %}
