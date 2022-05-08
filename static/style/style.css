@@ -6,15 +6,17 @@ body {
     background-size: cover;
     background-repeat:no-repeat;
     background-attachment: fixed;
-}
-
-form {
-    border: 3px solid rgb(68, 126, 252);
+    margin: 0;
 }
 
 h1 {
   padding: 30px;
   font-size: 1.5rem;
+}
+
+ul{
+  list-style-type: none;
+  padding: 0;
 }
 
 input[type=text], input[type=password] {
@@ -51,6 +53,10 @@ button:hover {
     text-align: center;
     margin: 24px 0 12px 0;
   }
+
+.imgcontainer h1 {
+  text-align: center;
+}
   
 img.logo_CIT_GPA_Calculator {
     width: 30%;
@@ -59,63 +65,60 @@ img.logo_CIT_GPA_Calculator {
 .container {
     padding: 30px;
   }
-  
+
+#inputgrade {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 250px;
+}
+
 span.password {
     float: right;
     padding-top: 16px;
   }
 
   .sidenav {
-    height: 100%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
+    margin: 0px;
+    padding: 0px;
+    width: 200px;
     background-image: url('/static/Images/sideb.jpg');
     background-color: #111;
     background-size: cover;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
   }
   
   .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
     color: white;
     display: block;
-    transition: 0.3s;
   }
   
   .sidenav a:hover {
     color:lightskyblue;
   }
-  
-  .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-  }
 
   .sidenav h1{
     color: lightskyblue;
   }
-
-  #main {
-    transition: margin-left .5s;
-    padding: 16px;
+  
+  @media screen and (max-width: 700px) {
+    .sidenav {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidenav a {float: left;}
+    div.content {margin-left: 0;}
   }
-  
-@media screen and (max-width: 300px) {
-  
-    span.password {
-       display: block;
-       float: none;
-    }
-    .cancelbtn {
-       width: 100%;
-    }
+
+
+  @media screen and (max-width: 400px) {
+    .sidenav a {
+      text-align: center;
+      float: none;
+    }  
   }

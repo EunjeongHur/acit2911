@@ -3,21 +3,20 @@
 
 <div id="mySidenav" class="sidenav">
     {% if current_user.is_authenticated %}
-<h1>{{ current_user.username }}</h1>
-<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-<a href=="{{url_for('index')}}">Index</a>
-<a href=#>Grade Input</a>
-<a href="#">Total Grade</a>
-<a href="#">GPA</a>
-<a href="{{url_for('logout')}}">Logout</a>
-{% else %}
-<a href="{{url_for('login')}}">Sign in/Sign up</a>
-{% endif %}   
+    <h1>{{ current_user.username }}</h1>
+    <ul>
+        <li><a href=#>Grade Input</a></li>
+        <li><a href="#">Total Grade</a></li>
+        <li><a href="#">GPA</a></li>
+        <li><a href="{{url_for('logout')}}">Logout</a>
+            {% else %}</li>
+        <li><a href="{{url_for('login')}}">Sign in/Sign up</a>
+            {% endif %}</li>   
+    </ul> 
 
 </div>
 
-<div id="container">
-    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776</span>
+<div id="inputgrade">
     <form action="/gpa/{{ current_user.student_id }}" method="POST" onclick="showForm()">
     
         <p>Select your term</p>
@@ -32,17 +31,5 @@
         <p><input type="submit" value="Save"></p>
     </form>
 </div>
-
-<script>
-
-    function closeNav() {
-      document.getElementById("mySidenav").style.width = "0";
-      document.getElementById("container").style.marginLeft= "0";
-    } 
-    function openNav() {
-      document.getElementById("mySidenav").style.width = "250px";
-      document.getElementById("container").style.marginLeft = "250px";
-    }
-    </script>
 
 {% endblock %}
