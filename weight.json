@@ -1,49 +1,49 @@
 {
-    "term1": 
+    "Term 1": 
         {
-            "acit1420": 4.0,
-            "acit1515": 4.0,
-            "acit1620": 4.0,
-            "acit1630": 4.0,
-            "comm1116": 4.0,
-            "math1310": 4.0,
-            "orgb1100": 3.0
+            "ACIT 1420 - Introduction to Systems Administration": 4.0,
+            "ACIT 1515 - Scripting for IT": 4.0,
+            "ACIT 1620 - Fundamental Web Technologies": 4.0,
+            "ACIT 1630 - Database Systems": 4.0,
+            "COMM 1116 - Business Communications 1": 4.0,
+            "MATH 1310 - Technical Math for IT": 4.0,
+            "ORGB 1100 - Organizational Behaviour": 3.0
         }
     ,
-    "term2": 
+    "Term 2": 
         {
-            "acit2420": 4.0,
-            "acit2515": 4.0,
-            "acit2520": 4.0,
-            "acit2620": 4.0,
-            "acit2811": 3.0,
-            "acit2831": 4.0,
-            "acit2911": 4.0,
-            "acit4770": 2.0,
-            "comm2216": 4.0,
-            "math1350": 4.0
+            "ACIT 2420 - Linux System Administration": 4.0,
+            "ACIT 2515 - Object Oriented Programming": 4.0,
+            "ACIT 2520 - Developing Web Applications": 4.0,
+            "ACIT 2620 - Principles of Enterprise Networking": 4.0,
+            "ACIT 2811 - UX/UI Development": 3.0,
+            "ACIT 2831 - Business Systems Analysis": 4.0,
+            "ACIT 2911 - Agile Development Project": 4.0,
+            "ACIT 4770 - Legal and Ethical Issues in IT": 2.0,
+            "COMM 2216 - Business Communications 2": 4.0,
+            "MATH 1350 - Statistics for Information Technology": 4.0
         }
     ,
-    "term3":
+    "Term 3":
         {
-            "acit3420": 4.0,
-            "acit3475": 4.0,
-            "acit3640": 4.0,
-            "acit3771": 4.0,
-            "acit3896": 4.0,
-            "acit3900": 4.0,
-            "acit3910": 4.0
+            "ACIT 3420 - Windows Server Administration": 4.0,
+            "ACIT 3475 - Web Server Administration": 4.0,
+            "ACIT 3640 - Cloud Computing": 4.0,
+            "ACIT 3771 - IT Service and Project Management": 4.0,
+            "ACIT 3896 - Applied Algorithms": 4.0,
+            "ACIT 3900 - IT Projects Practicum 1": 4.0,
+            "ACIT 3910 - Database Administration and Management": 4.0
         }
     ,
-    "term4":
+    "Term 4":
         {
-            "acit3495": 4.0,
-            "acit3855": 4.0,
-            "acit4630": 4.0,
-            "acit4640": 4.0,
-            "acit4850": 4.0,
-            "acit4880": 4.0,
-            "acit4990": 4.0,
-            "acit4980": 4.0
+            "ACIT 3495 - Advanced Topics in IT Infrastructure": 4.0,
+            "ACIT 3855 - Service Based Architectures": 4.0,
+            "ACIT 4630 - Information Assurance and Security": 4.0,
+            "ACIT 4640 - IT System and Network Provisioning": 4.0,
+            "ACIT 4850 - Enterprise System Integration": 4.0,
+            "ACIT 4880 - Introduction to Data Analytics": 4.0,
+            "ACIT 4900 - IT Project Practicum 2": 4.0,
+            "ACIT 4980 - Information Technology Industry Practicum": 4.0
         }
 }
