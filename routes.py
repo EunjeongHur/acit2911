@@ -59,6 +59,36 @@ def gradeInput():
 def gpa():
     return render_template("gpa.html")
 
+@app.route("/gpa/<string:stu_id>", methods=["POST"])
+def term(stu_id):
+    if request.method == 'POST':
+        data = request.form.to_dict(flat=False)
+        for i in data['term']:
+            terms = i
+        for i in data['course']:
+            course = i
+        for i in data['grade']:
+            grade = i
+        credit = Credit(terms).find_course(course)
+        try:
+            newgrade = Course(
+                student_id=stu_id,
+                class_name=course,
+                class_credit=credit,
+                grade=grade
+            )
+
+            db.session.add(newgrade)
+            db.session.commit()
+            flash(f"Grade successfully saved", "success")
+            return render_template("input.html")
+
+        except DataError:
+            db.session.rollback()
+            flash(f"Invalid Entry", "warning")
+        
+    return render_template_string(f'Test')
+
 @app.route("/login/", methods=("GET", "POST"), strict_slashes=False)
 def login():
     form = login_form()
