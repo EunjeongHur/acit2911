@@ -1,17 +1,24 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-}
-
-form {
-    border: 3px solid rgb(68, 126, 252);
+    background-image: url('/static/Images/background.jpg');
+    background-color: azure;
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    margin: 0;
 }
 
 h1 {
   padding: 30px;
-  font-size: medium;
+  font-size: 1.5rem;
 }
-  
+
+ul{
+  list-style-type: none;
+  padding: 0;
+}
+
 input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
@@ -46,6 +53,10 @@ button:hover {
     text-align: center;
     margin: 24px 0 12px 0;
   }
+
+.imgcontainer h1 {
+  text-align: center;
+}
   
 img.logo_CIT_GPA_Calculator {
     width: 30%;
@@ -53,20 +64,61 @@ img.logo_CIT_GPA_Calculator {
 
 .container {
     padding: 30px;
-    background: rgb(240, 244, 255);
   }
-  
+
+#inputgrade {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 250px;
+}
+
 span.password {
     float: right;
     padding-top: 16px;
   }
+
+  .sidenav {
+    margin: 0px;
+    padding: 0px;
+    width: 200px;
+    background-image: url('/static/Images/sideb.jpg');
+    background-color: #111;
+    background-size: cover;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
   
-@media screen and (max-width: 300px) {
-    span.password {
-       display: block;
-       float: none;
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+  }
+  
+  .sidenav a:hover {
+    color:lightskyblue;
+  }
+
+  .sidenav h1{
+    color: lightskyblue;
+  }
+  
+  @media screen and (max-width: 700px) {
+    .sidenav {
+      width: 100%;
+      height: auto;
+      position: relative;
     }
-    .cancelbtn {
-       width: 100%;
-    }
+    .sidenav a {float: left;}
+    div.content {margin-left: 0;}
+  }
+
+
+  @media screen and (max-width: 400px) {
+    .sidenav a {
+      text-align: center;
+      float: none;
+    }  
   }

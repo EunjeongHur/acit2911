@@ -51,6 +51,14 @@ def session_handler():
 def index():
     return render_template("index.html")
 
+@app.route("/gradeInput")
+def gradeInput():
+    return render_template("gradeInput.html")
+
+@app.route("/gpa")
+def gpa():
+    return render_template("gpa.html")
+
 @app.route("/login/", methods=("GET", "POST"), strict_slashes=False)
 def login():
     form = login_form()

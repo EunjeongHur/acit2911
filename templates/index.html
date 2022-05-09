@@ -1,26 +1,31 @@
 {% extends "base.html" %}
 {% block content%}
 
-<div class="container">
+<div id="mySidenav" class="sidenav">
+        {% if current_user.is_authenticated %}
+    <h1>{{ current_user.username }}</h1>
+    <ul>
+        <li><a href="{{url_for('gradeInput')}}">Grade Input</a></li>
+        <li><a href="#">Total Grade</a></li>
+        <li><a href="{{url_for('gpa')}}">GPA</a></li>
+        <li><a href="{{url_for('logout')}}">Logout</a>
+            {% else %}</li>
+        <li><a href="{{url_for('login')}}">Sign in/Sign up</a>
+            {% endif %}</li>   
+    </ul>
+</div>
 
-    {% if current_user.is_authenticated %}
-    <p>Welcome {{ current_user.username }}</p>
-    <form action="/gpa/{{ current_user.student_id }}" method="POST" onclick="showForm()">
-    
-        <p>Select your term</p>
-        <select id="term" name="term">
-        </select>
-        <p>Select your courses</p>
-        <select id="course" name="course">
-        </select>
-        <div>
-            <input type="number" name="grade" placeholder="Enter grade (%)" autocomplete="off">
-        </div>
-        <p><input type="submit" value="Save"></p>
-    </form>
+<div id="main">
+    <div class="imgcontainer">
+    <img src="{{url_for('static', filename='Images/logo.png') }}" alt="logo_CIT_GPA_Calculator" class="logo_CIT_GPA_Calculator">
+
+        {% if current_user.is_authenticated %}
+        <h1>Welcome {{ current_user.username }}</h1>
     <a href="{{url_for('logout')}}">Logout</a>
     {% else %}
     <a href="{{url_for('login')}}">Sign in/Sign up</a>
     {% endif %}
+        </div>
 </div>
+
 {% endblock %}
