@@ -7,7 +7,7 @@
     <ul>
         <li><a href=#>Grade Input</a></li>
         <li><a href="#">Total Grade</a></li>
-        <li><a href="{{url_for('gpa')}}">GPA</a></li>
+        <li><a href="{{url_for('view', stu_id=current_user.student_id)}}">GPA</a></li>
         <li><a href="{{url_for('logout')}}">Logout</a>
             {% else %}</li>
         <li><a href="{{url_for('login')}}">Sign in/Sign up</a>
