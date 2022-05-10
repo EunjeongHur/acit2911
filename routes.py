@@ -55,9 +55,16 @@ def index():
 def gradeInput():
     return render_template("gradeInput.html")
 
-@app.route("/gpa")
-def gpa():
-    return render_template("gpa.html")
+@app.route("/gpa/<string:stu_id>")
+def view(stu_id):
+    student = Course.query.filter_by(student_id=stu_id).all()
+    score = 0
+    total_credits = 0
+    for i in student:
+        score += (i.grade * i.class_credit)
+        total_credits += i.class_credit
+    gpa = int(score/total_credits)
+    return render_template("gpa.html", data=student, gpa=gpa)
 
 @app.route("/gpa/<string:stu_id>", methods=["POST"])
 def term(stu_id):
