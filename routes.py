@@ -18,6 +18,7 @@ from sqlalchemy.exc import (
     InvalidRequestError,
 )
 
+from sqlalchemy import select, and_
 from werkzeug.routing import BuildError
 from credit import Credit
 
@@ -60,6 +61,8 @@ def view(stu_id):
     student = Course.query.filter_by(student_id=stu_id).all()
     score = 0
     total_credits = 0
+    if len(student) == 0:
+        return render_template("gpa.html", data=student, gpa=0)
     for i in student:
         score += (i.grade * i.class_credit)
         total_credits += i.class_credit
@@ -73,26 +76,43 @@ def term(stu_id):
         for i in data['term']:
             terms = i
         for i in data['course']:
-            course = i
+            cname = i
         for i in data['grade']:
             grade = i
-        credit = Credit(terms).find_course(course)
+        credit = Credit(terms).find_course(cname)
         try:
-            newgrade = Course(
-                student_id=stu_id,
-                class_name=course,
-                class_credit=credit,
-                grade=grade
+            
+            query = db.session.query(Course).filter(
+                and_(
+                    Course.class_name.like(cname),
+                    Course.student_id.like(stu_id)
+                )
             )
+            length = []
+            for i in query:
+                length.append(i)
+            if len(length) >= 1:
+                raise InvalidRequestError
+            else:
+                newgrade = Course(
+                    student_id=stu_id,
+                    class_name=cname,
+                    class_credit=credit,
+                    grade=grade
+                )
 
-            db.session.add(newgrade)
-            db.session.commit()
-            flash(f"Grade successfully saved", "success")
-            return render_template("input.html")
+                db.session.add(newgrade)
+                db.session.commit()
+                flash(f"Grade successfully saved", "success")
+                return render_template("input.html")
 
         except DataError:
             db.session.rollback()
             flash(f"Invalid Entry", "warning")
+        except InvalidRequestError:
+            db.session.rollback()
+            r_error=True
+            return render_template("input.html", r_error=r_error)
         
     return render_template_string(f'Test')
 

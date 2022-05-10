@@ -8,7 +8,7 @@
     <ul>
         <li><a href="{{url_for('gradeInput')}}">Grade Input</a></li>
         <li><a href="#">Total Grade</a></li>
-        <li><a href="#">GPA</a></li>
+        <li><a href="{{url_for('view', stu_id=current_user.student_id)}}">GPA</a></li>
         <li><a href="{{url_for('logout')}}">Logout</a>
             {% else %}</li>
         <li><a href="{{url_for('login')}}">Sign in/Sign up</a>
@@ -17,9 +17,18 @@
 </div>
 
 <div id ="inputgrade">
+    {% if r_error %}
+    <div id="request_error">
+        <h1>This course's grade is already submitted.</h1>
+        <h3>To resubmit or edit, click <a href="#">here</a></h3>
+    </div>
+    {% else %}
     <h1>Grade is saved successfully!</h1>
     <a href="{{url_for('view', stu_id=current_user.student_id)}}">View Grade</a>
     <a href="{{url_for('logout')}}">Logout</a>
+    {% endif %}
 </div>
+
+
 
 {% endblock %}
