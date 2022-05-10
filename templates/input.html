@@ -16,8 +16,9 @@
     </ul> 
 </div>
 
-<div id ="main">
+<div id ="inputgrade">
     <h1>Grade is saved successfully!</h1>
+    <a href="{{url_for('view', stu_id=current_user.student_id)}}">View Grade</a>
     <a href="{{url_for('logout')}}">Logout</a>
 </div>
 

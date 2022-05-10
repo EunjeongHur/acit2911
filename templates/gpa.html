@@ -15,9 +15,28 @@
     </ul> 
 </div>
 
-<div id="gpa">
-<h1>Total GPA</h1>
-
+<div id="inputgrade">
+    <div class="imgcontainer">
+    <h1>Total GPA: {{ gpa }}</h1>
+    <table>
+        <thead>
+            <tr>
+                <td>Course</td>
+                <td>Credit</td>
+                <td>Grade</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+            <tr>
+                <td>{{i.class_name}}</td>
+                <td>{{i.class_credit}}</td>
+                <td>{{i.grade}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
 </div>
 
 {% endblock %}
