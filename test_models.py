@@ -1,5 +1,10 @@
+from venv import create
 import pytest
+import os
 from models import User, Course
+from wtforms import ValidationError
+import forms, routes
+from app import create_app, db
 
 @pytest.fixture
 def mock_user():
@@ -21,24 +26,24 @@ def mock_course():
     return newcourse
 
 def test_user(mock_user):
-    newuser = mock_user
-    assert newuser.student_id =="A12345678"
-    assert newuser.username == "User Name"
-    assert newuser.pwd == "password"
+    assert mock_user.student_id =="A12345678"
+    assert mock_user.username == "User Name"
+    assert mock_user.pwd == "password"
+    assert mock_user.is_authenticated
+    assert mock_user.is_active
 
 def test_user_repr(mock_user):
-    newuser = mock_user
-    test_repr = repr(newuser)
+    test_repr = repr(mock_user)
     assert test_repr == '<User: User Name>' 
 
 def test_course(mock_course):
-    newcourse = mock_course
-    assert newcourse.student_id == "A12345678"
-    assert newcourse.class_name == "acit1420"
-    assert newcourse.class_credit == 4.0
-    assert newcourse.grade == 60
+    assert mock_course.student_id == "A12345678"
+    assert mock_course.class_name == "acit1420"
+    assert mock_course.class_credit == 4.0
+    assert mock_course.grade == 60
 
 def test_course_repr(mock_course):
-    newcourse = mock_course
-    test_repr = repr(newcourse)
+    test_repr = repr(mock_course)
     assert test_repr == '<Grade: 60>'
+
+
