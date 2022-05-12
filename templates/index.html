@@ -6,7 +6,6 @@
     <h1>{{ current_user.username }}</h1>
     <ul>
         <li><a href="{{url_for('gradeInput')}}">Grade Input</a></li>
-        <li><a href="#">Total Grade</a></li>
         <li><a href="{{url_for('view', stu_id=current_user.student_id)}}">GPA</a></li>
         <li><a href="{{url_for('logout')}}">Logout</a>
             {% else %}</li>
