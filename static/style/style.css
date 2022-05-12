@@ -66,9 +66,7 @@ img.logo_CIT_GPA_Calculator {
     padding: 30px;
   }
 
-.gradeinput {
-  display: flex;
-  flex-wrap: wrap;
+.gradeinput{
   padding-left: 250px;
 }
 
@@ -107,6 +105,7 @@ span.password {
 
   table, th, td {
     border: 1px solid;
+    margin:auto;
   }
   
   @media screen and (max-width: 800px) {
