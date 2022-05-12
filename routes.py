@@ -18,7 +18,7 @@ from sqlalchemy.exc import (
     InvalidRequestError,
 )
 
-from sqlalchemy import select, and_
+from sqlalchemy import and_
 from werkzeug.routing import BuildError
 from credit import Credit
 
@@ -69,6 +69,7 @@ def view(stu_id):
     gpa = int(score/total_credits)
     return render_template("gpa.html", data=student, gpa=gpa)
 
+
 @app.route("/gpa/<string:stu_id>", methods=["POST"])
 def term(stu_id):
     if request.method == 'POST':
@@ -81,7 +82,6 @@ def term(stu_id):
             grade = i
         credit = Credit(terms).find_course(cname)
         try:
-            
             query = db.session.query(Course).filter(
                 and_(
                     Course.class_name.like(cname),
@@ -113,8 +113,7 @@ def term(stu_id):
             db.session.rollback()
             r_error=True
             return render_template("input.html", r_error=r_error)
-        
-    return render_template_string(f'Test')
+    
 
 @app.route("/login/", methods=("GET", "POST"), strict_slashes=False)
 def login():
