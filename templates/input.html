@@ -17,7 +17,7 @@
     {% if r_error %}
     <div id="request_error">
         <h1>This course's grade is already submitted.</h1>
-        <h3>To resubmit or edit, click <a href="#">here</a></h3>
+        <h3>To resubmit or edit, click <a href="{{url_for('gradeInput')}}">here</a></h3>
     </div>
     {% else %}
     <h1>Grade is saved successfully!</h1>
