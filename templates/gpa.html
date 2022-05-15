@@ -34,7 +34,33 @@
     </table>
     </div>
 </div>
+<button id="deletebtn" onclick="document.getElementById('id01').style.display='block'">Delete Course</button>
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+  <form class="modal-content" action="/action_page.php">
+    <div class="container">
+      <h1>Delete Course</h1>
+      <p>Are you sure you want to delete this course?</p>
+    
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">Delete</button>
+      </div>
+    </div>
+  </form>
+</div>
 
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
 {% else %}
 <div id="mySidenav" class="sidenav">
     <ul>
