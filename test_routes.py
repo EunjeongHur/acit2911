@@ -1,5 +1,5 @@
 from create_app import db
-from routes import app
+from app import app
 import pytest
 import os, tempfile
 from models import Course
