@@ -1,4 +1,4 @@
-from app import db
+from create_app import db
 from routes import app
 import pytest
 import os, tempfile

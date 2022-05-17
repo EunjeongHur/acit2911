@@ -1,5 +1,5 @@
 from sqlalchemy import ForeignKey
-from app import db
+from create_app import db
 from flask_login import UserMixin
 
 class User(UserMixin, db.Model):

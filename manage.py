@@ -1,5 +1,5 @@
 def deploy():
-    from app import create_app, db
+    from create_app import create_app, db
     from flask_migrate import upgrade, migrate, init, stamp
     from models import User, Course
 

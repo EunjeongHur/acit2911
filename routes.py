@@ -33,7 +33,7 @@ from flask_login import (
     login_required,
 )
 
-from app import create_app, db, login_manager, bcrypt
+from create_app import create_app, db, login_manager, bcrypt
 from models import User, Course
 from forms import login_form, register_form
 
