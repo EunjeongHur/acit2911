@@ -16,15 +16,18 @@
 
 <div id="main">
     <div class="imgcontainer">
-    <img src="{{url_for('static', filename='Images/logo.png') }}" alt="logo_CIT_GPA_Calculator" class="logo_CIT_GPA_Calculator">
+        <img src="{{url_for('static', filename='Images/logo.png') }}" alt="logo_CIT_GPA_Calculator" class="logo_CIT_GPA_Calculator">
 
         {% if current_user.is_authenticated %}
         <h1>Welcome {{ current_user.username }}</h1>
-    <a href="{{url_for('logout')}}">Logout</a>
+        <a href="{{url_for('logout')}}">Logout</a>
+    </div>
     {% else %}
-    <a href="{{url_for('login')}}">Sign in/Sign up</a>
+        <div class="imgcontainer">
+        <a href="{{url_for('login')}}" id="signin-up">Sign in/Sign up</a>
+        </div>  
     {% endif %}
-        </div>
+    
 </div>
 
 {% endblock %}
