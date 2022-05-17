@@ -2,7 +2,7 @@
 
 ## App ##
 
-citgpacalculator.herokuapp.com
+https://citgpacalculator.herokuapp.com
 
 ## Set up & Installation
 
