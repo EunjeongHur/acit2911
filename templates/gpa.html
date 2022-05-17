@@ -13,13 +13,14 @@
 
 <div id="gpa" class="gpadisplay">
     <div class="imgcontainer">
-    <h1>Total GPA: {{ gpa }}</h1>
     <table>
+      <caption>Total GPA: {{ gpa }}</caption>
         <thead>
             <tr>
-                <td>Course</td>
-                <td>Credit</td>
-                <td>Grade</td>
+                <th>Course</th>
+                <th>Credit</th>
+                <th>Grade</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -28,13 +29,13 @@
                 <td>{{i.class_name}}</td>
                 <td>{{i.class_credit}}</td>
                 <td>{{i.grade}}</td>
-            </tr>
+                <td><button id="cdeletebtn" onclick="document.getElementById('id01').style.display='block'">Delete</button></td>
             {% endfor %}
         </tbody>
     </table>
     </div>
 </div>
-<button id="deletebtn" onclick="document.getElementById('id01').style.display='block'">Delete Course</button>
+
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
   <form class="modal-content" action="/action_page.php">

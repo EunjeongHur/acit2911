@@ -126,9 +126,62 @@ span.password {
 }
 
 table, th, td {
-  border: 1px solid;
+  border-collapse: collapse;
   margin:auto;
 }
+
+table {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+th{
+  padding: 10px;
+}
+td{
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+caption{
+  font-weight:bold;
+  font-size: 24px;
+  text-align: center;
+  color: #333;
+  padding-bottom: 8px;
+}
+
+thead{
+  background-color: #333;
+  color: white;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 5%;
+}
+
+thead tr{
+  background-color: #009879;
+  color: #ffffff;
+}
+
+tbody tr{
+  border-bottom: 1px solid #dddddd;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #eee;
+}
+
+tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+/* 
+thead th{
+  width: 25%;
+} */
 
 .cancelbtn, .deletebtn {
   float: left;
@@ -150,6 +203,19 @@ table, th, td {
   display: flex;
   margin: auto;
   flex-direction: column;
+}
+
+#cdeletebtn{
+  background-color: rgba(218, 24, 63, 0.664);
+  margin: auto; 
+  border-radius: 16px;
+  font-size: 14px;
+  cursor:pointer;
+  transition-duration: 0.4s;
+}
+
+#cdeletebtn:hover{
+  background-color: rgb(208, 2, 44);
 }
 
 #gpa{
