@@ -144,7 +144,7 @@ def register():
             newuser = User(
                 student_id = student_id,
                 username = username,
-                pwd=bcrypt.generate_password_hash(pwd),
+                pwd=generate_password_hash(pwd).decode('utf8'),
             )
 
             db.session.add(newuser)
