@@ -16,7 +16,7 @@ class Course(db.Model):
     __tablename__ = "course"
     id = db.Column(db.Integer, primary_key=True)
     student_id = db.Column(db.String(9), unique=False, nullable=False)
-    class_name = db.Column(db.String(30), unique=False, nullable=False)
+    class_name = db.Column(db.Text(), unique=False, nullable=False)
     class_credit = db.Column(db.Float, unique=False, nullable=False)
     grade = db.Column(db.Integer, unique=False, nullable=False)
 
