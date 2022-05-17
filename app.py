@@ -46,7 +46,7 @@ app = create_app()
 @app.before_request
 def session_handler():
     session.permanent = True
-    app.permanent_session_lifetime = timedelta(minutes=1)
+    app.permanent_session_lifetime = timedelta(minutes=10)
 
 @app.route("/", methods=("GET", "POST"), strict_slashes=False)
 def index():
@@ -114,6 +114,23 @@ def term(stu_id):
             r_error=True
             return render_template("input.html", r_error=r_error)
     
+@app.route("/gpa/delete/<string:stu_id>/<int:id>", methods=['POST'])
+def delete(stu_id,id):
+    if request.method == 'POST':
+        data = request.form['delete_button']
+        try:
+            if data == 'Delete':
+                Course.query.filter(Course.id == id).delete()
+                db.session.commit()
+                
+                return redirect(url_for('view', stu_id=stu_id))
+            else:
+                print('nn')
+                return render_template_string("df")
+        except DataError:
+            db.session.rollback()
+        except AttributeError:
+            db.session.rollback()
 
 @app.route("/login/", methods=("GET", "POST"), strict_slashes=False)
 def login():
