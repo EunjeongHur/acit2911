@@ -3,7 +3,7 @@ import pytest
 import os
 from models import User, Course
 from wtforms import ValidationError
-import forms, routes
+import forms, app
 from create_app import create_app, db
 
 @pytest.fixture
