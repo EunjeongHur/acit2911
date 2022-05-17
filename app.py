@@ -67,7 +67,31 @@ def view(stu_id):
         score += (i.grade * i.class_credit)
         total_credits += i.class_credit
     gpa = int(score/total_credits)
-    return render_template("gpa.html", data=student, gpa=gpa)
+    if gpa >= 100:
+        letter_grade = 'A+'
+    elif gpa < 100 and gpa >= 95:
+        letter_grade = 'A'
+    elif gpa < 95 and gpa >= 90:
+        letter_grade = 'A-'
+    elif gpa < 90 and gpa >= 85:
+        letter_grade = 'B+'
+    elif gpa < 85 and gpa >= 80:
+        letter_grade = 'B'
+    elif gpa < 80 and gpa >= 75:
+        letter_grade = 'B-'
+    elif gpa < 75 and gpa >= 70: 
+        letter_grade = 'C+'
+    elif gpa < 70 and gpa >= 65:
+        letter_grade = 'C'
+    elif gpa < 65 and gpa >= 60:
+        letter_grade = 'C-'
+    elif gpa < 60 and gpa >= 55:
+        letter_grade = 'D+'
+    elif gpa < 55 and gpa >= 50:
+        letter_grade = 'D'
+    else:
+        letter_grade = 'F'
+    return render_template("gpa.html", data=student, gpa=gpa, letter_grade=letter_grade)
 
 
 @app.route("/gpa/<string:stu_id>", methods=["POST"])

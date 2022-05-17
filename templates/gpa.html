@@ -13,8 +13,17 @@
 
 <div id="gpa" class="gpadisplay">
     <div class="imgcontainer">
-    <table>
-      <caption>Total GPA: {{ gpa }}</caption>
+      <div id="searchbar">
+        <h4>Total GPA: {{ gpa }}<br>Letter Grade:{{ letter_grade }}</h4>
+        
+        <input type="text" id="searchCourse" onkeyup="Search()" placeholder="Search for Courses...">
+        <p id="addCourse"><a href="{{url_for('gradeInput')}}" class="addrow">+ Add</a></p>
+        
+      </div>
+    <table id="gpaTable">
+      
+      
+      
         <thead>
             <tr>
                 <th>Course</th>
@@ -38,6 +47,29 @@
     </div>
 </div>
 
+<script>
+  function Search() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("searchCourse");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("gpaTable");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+</script>
 <!-- <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
   <form class="modal-content" action="/gpa/delete/{{ current_user.student_id }}" method="POST">
@@ -71,6 +103,4 @@ window.onclick = function(event) {
     </ul>
 </div>
 {% endif %}
-
-
 {% endblock %}

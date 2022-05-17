@@ -142,13 +142,7 @@ td{
   padding-right: 3px;
 }
 
-caption{
-  font-weight:bold;
-  font-size: 24px;
-  text-align: center;
-  color: #333;
-  padding-bottom: 8px;
-}
+
 
 thead{
   background-color: #333;
@@ -221,6 +215,40 @@ thead th{
 #gpa{
   padding-bottom: 50px;
 }
+
+#searchCourse {
+  width: 60%;
+  height: 60%;
+  align-self: center;
+}
+
+#searchbar {
+  display:flex;
+  justify-content: space-between;
+  max-width: 39%;
+  margin:auto;
+}
+
+#addCourse {
+  align-self: flex-end;
+}
+
+.addrow:link, .addrow:visited{
+  text-decoration:none;
+  color: #333;
+}
+
+.addrow:hover {
+  text-decoration-line:underline;
+  text-decoration-color:#009879;
+  text-decoration-thickness:2px;
+}
+
+h4{
+  text-align: left;
+  color: #333;
+}
+
 
 .container {
   padding: 16px;
