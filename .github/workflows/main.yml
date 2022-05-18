@@ -15,6 +15,9 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "citgpacalculator" #Must be unique in Heroku
           heroku_email: "ungdunge2@gmail.com"
-          procfile: "web: gunicorn"
+          
           # stack: "container"
           # usedocker: true
+      - run: |
+        git remote add heroku git@heroku.com:citgpacalculator.git
+        git push heroku main
