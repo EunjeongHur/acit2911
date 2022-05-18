@@ -26,7 +26,7 @@ def create_app():
 
     app.secret_key = 'secret-key'
     # app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///gpa.db"
-    app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://zofkkmkhearmll:32d3fb1db5ad18e8e9d625d1fdf0f5300f04ba8201f7a1f6fcf84daf4e543e61@ec2-3-209-124-113.compute-1.amazonaws.com:5432/de3tvqfj7atjqc"
+    app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://yroziginvigpaz:6edeea25afd2c147284f253c03f9c54f4cde2d7bbca34bc4f36a8bf90d73bd16@ec2-52-3-2-245.compute-1.amazonaws.com:5432/df2ao7orgg9g16"
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
     login_manager.init_app(app)
