@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
-          heroku_api_key: ${{f948bf61-5aeb-4a90-a973-002600673b78}}
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "citgpacalculator" #Must be unique in Heroku
           heroku_email: "ungdunge2@gmail.com"
           usedocker: true
