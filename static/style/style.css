@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One&display=swap');
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-image: url('/static/Images/background.jpg');
@@ -85,7 +87,43 @@ img.logo_CIT_GPA_Calculator {
   margin: auto;
   display: flex;
   flex-direction: column;
-  padding-top: 40px;
+  margin-top: 40px;
+}
+
+select, input[type=number]{
+  width: 100%;
+  padding: 10px 20px;
+  border:none;
+  border-radius: 4px;
+}
+
+input[type=number] {
+  width: 90%;
+}
+
+input[type=submit]{
+  background-color: #3b3a92ce;
+  width: 50%;
+  padding: 10px 10px;
+  justify-self: center;
+  border:none;
+  border-radius: 4px;
+  box-shadow: 1px 1px 1px 2px rgba(0,0,0,1)
+}
+
+input[type=submit]:hover{
+  background-color:rgb(50, 28, 105);
+  color: #eee;
+}
+
+#inputgrade {
+  border: 2px solid black;
+  width: 30%;
+  background-color:rgba(44, 86, 142, 0.34);
+  padding: 100px 0px 100px 0px;
+  font-family: 'Fjalla One';
+  font-size: 30px;
+  box-shadow: 15px 15px 1px #2a296a, 15px 15px 1px 2px rgba(0,0,0,1);
 }
 
 span.password {
@@ -95,7 +133,7 @@ span.password {
 
 .sidenav {
   margin: 0px;
-  margin-top: -24px;
+  margin-top: -40px;
   padding: 0px;
   width: 200px;
   background-image: url('/static/Images/sideb.jpg');
@@ -104,6 +142,10 @@ span.password {
   position: fixed;
   height: 100%;
   overflow: auto;
+}
+
+.container-item{
+  height: 100vh;
 }
   
 .sidenav a {
@@ -153,7 +195,7 @@ thead{
 }
 
 thead tr{
-  background-color: #009879;
+  background-color: #004298;
   color: #ffffff;
 }
 
@@ -170,12 +212,9 @@ tbody tr:nth-child(even) {
 }
 
 tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
+  border-bottom: 2px solid #004298d3;
 }
-/* 
-thead th{
-  width: 25%;
-} */
+
 
 .cancelbtn, .deletebtn {
   float: left;
@@ -189,6 +228,41 @@ thead th{
 
 .deletebtn {
   background-color:crimson;
+}
+
+.linkdiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.linkdiv a:link, .linkdiv a:visited, .imgcontainer a:link, .imgcontainer a:visited{
+  text-decoration: none;
+  color: #333;
+  padding: 5px;
+}
+
+.linkdiv a:hover, .imgcontainer a:hover{
+  text-decoration-line: underline;
+  text-decoration-color:#d0e325;
+  text-decoration-thickness: 2px;
+  font-size: 1.25rem;
+  padding: 2px;
+}
+
+#errorlink:link, #errorlink:visited{
+  text-decoration-line: underline;
+  text-decoration-color:#d0e325;
+  color: #333;
+  padding: 5px;
+}
+
+#errorlink:hover{
+  text-decoration-line: underline;
+  text-decoration-color:#d0e325;
+  text-decoration-thickness: 2px;
+  font-size: 1.25rem;
+  padding: 2px;
 }
 
 #deletebtn {
@@ -240,7 +314,7 @@ thead th{
 
 .addrow:hover {
   text-decoration-line:underline;
-  text-decoration-color:#009879;
+  text-decoration-color:#d0e325;
   text-decoration-thickness:2px;
 }
 
@@ -315,9 +389,20 @@ hr {
     width: 100%;
     height: auto;
     position: relative;
+    margin-top: 0px;
   }
   .sidenav a {float: left;}
   div.content {margin-left: 0;}
+  
+  #inputgrade{
+    width: 80%;
+  }
+  #searchbar {
+    
+
+    max-width: 80%;
+    margin:auto;
+  }
 }
 
 @media screen and (min-width: 1024px)  {
