@@ -127,7 +127,6 @@ def term(stu_id):
 
                 db.session.add(newgrade)
                 db.session.commit()
-                flash(f"Grade successfully saved", "success")
                 return render_template("input.html")
 
         except DataError:

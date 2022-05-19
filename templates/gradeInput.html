@@ -1,39 +1,42 @@
 {% extends "base.html" %}
 {% block content%}
+<div class="bodycontainer">
+    <div id="mySidenav" class="sidenav">
+        {% if current_user.is_authenticated %}
+        <h1><a href="{{url_for('index')}}">{{ current_user.username }}</a></h1>
+        <ul>
+            <li><a href=#>Grade Input</a></li>
+            <li><a href="{{url_for('view', stu_id=current_user.student_id)}}">GPA</a></li>
+            <li><a href="{{url_for('logout')}}">Logout</a></li>  
+        </ul> 
+    </div>
 
-<div id="mySidenav" class="sidenav">
-    {% if current_user.is_authenticated %}
-    <h1><a href="{{url_for('index')}}">{{ current_user.username }}</a></h1>
-    <ul>
-        <li><a href=#>Grade Input</a></li>
-        <li><a href="{{url_for('view', stu_id=current_user.student_id)}}">GPA</a></li>
-        <li><a href="{{url_for('logout')}}">Logout</a></li>  
-    </ul> 
-</div>
-
-<div id="inputgrade" class="gradeinput">
-    <form action="/gpa/{{ current_user.student_id }}" method="POST" onclick="showForm()">
-    
-        <p>Select your term</p>
-        <select id="term" name="term">
-        </select>
-        <p>Select your courses</p>
-        <select id="course" name="course">
-        </select>
-        <div>
-            <input type="number" name="grade" placeholder="Enter grade (%)" autocomplete="off">
+    <div id="inputgrade" class="gradeinput">
+        <div class="inputform">
+            <form action="/gpa/{{ current_user.student_id }}" method="POST" onclick="showForm()" id="gradeselect">
+            
+                <p class="form-p">Select your term</p>
+                <select id="term" name="term">
+                </select>
+                <p>Select your courses</p>
+                <select id="course" name="course">
+                </select>
+                <div>
+                    <input type="number" name="grade" placeholder="Enter grade (%)" autocomplete="off">
+                
+                    <input type="submit" value="Save">
+                </div>
+            </form>
         </div>
-        <p><input type="submit" value="Save"></p>
-    </form>
-</div>
+    </div>
 
-{% else %}
-<div id="mySidenav" class="sidenav">
-    <ul>
-        <li><a href="{{url_for('login')}}">Sign in/Sign up</a></li> 
-    </ul>
+    {% else %}
+    <div id="mySidenav" class="sidenav">
+        <ul>
+            <li><a href="{{url_for('login')}}">Sign in/Sign up</a></li> 
+        </ul>
+    </div>
+    {% endif %}
 </div>
-{% endif %}
-
 
 {% endblock %}
