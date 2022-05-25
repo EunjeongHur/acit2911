@@ -132,7 +132,6 @@ span.password {
 }
 
 .sidenav {
-  margin: 0px;
   margin-top: -40px;
   width: 200px;
   background-image: url('/static/Images/sideb.jpg');
@@ -182,8 +181,6 @@ td{
   padding-left: 3px;
   padding-right: 3px;
 }
-
-
 
 thead{
   background-color: #333;
@@ -333,7 +330,6 @@ h4{
     width: 100%;
     height: auto;
     position: relative;
-    margin-top: 0px;
   }
   .sidenav a {float: left;}
   div.content {margin-left: 0;}
