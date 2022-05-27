@@ -4,6 +4,18 @@
 
 https://citgpacalculator.herokuapp.com
 
+### What is our app?
+ A web application to calculate CIT students GPA based on given grades and save the results.
+ 
+### Role
+Product Owner: Eunjeong (Alice) Hur  
+Minute Taker: Mitchel Webb  
+Scrum Master: Liam McDougall  
+Developers:  
+Backend - Hellemond Dargalaii, Liam McDougall, Eunjeong (Alice)  Hur  
+Frontend - Mitchel Webb, Aline Hammermuller  
+
+
 ## Set up & Installation
 
 ### 1. Create a virtual environment
